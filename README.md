@@ -11,36 +11,22 @@ The ultimate goal is to create a clear, data-driven narrative that can inform st
 
 ## 📁 Project Structure
 
-/*
----------------------------------------------------------
-|                 PROJECT STRUCTURE WHITEBOARD           |
----------------------------------------------------------
-|  data/                |  - Data extraction scripts     |
-|                       |  - Output CSV files           |
-|-----------------------|-------------------------------|
-|  database/            |  - DB backups                 |
-|                       |  - Schemas                    |
-|                       |  - Initialization scripts     |
-|-----------------------|-------------------------------|
-|  docs/                |  - Analysis reports           |
-|                       |  - Diagrams (e.g., flowcharts)|
-|                       |  - Methodology docs           |
-|-----------------------|-------------------------------|
-|  scripts/             |  - All analysis scripts       |
-|    ├─ eda/            |    - EDA SQL scripts          |
-|    └─ advanced_analysis/ | - Advanced analytics SQL    |
-|-----------------------|-------------------------------|
-|  notebooks/           |  - (Optional) Jupyter         |
-|                       |    notebooks for exploration  |
-|-----------------------|-------------------------------|
-|  tests/               |  - (Optional) Data validation |
-|                       |    and unit test scripts      |
-|-----------------------|-------------------------------|
-|  requirements.txt     |  - Python dependencies list   |
-|-----------------------|-------------------------------|
-|  README.md            |  - Project overview & guide   |
----------------------------------------------------------
-*/
+```.
+├── data
+│   ├── extract_data.py
+│   └── README.md
+├── database
+│   └── backup
+├── docs
+│   ├── eda.drawio .png
+│   ├── naming_conventions.md
+│   └── report
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── scripts
+    └── eda
+```
 
 ## 🔍 Exploratory Data Analysis (EDA)
 
