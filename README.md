@@ -109,7 +109,7 @@ You can expect the output of these scripts to be tabular data, which can then be
 
 For a high-level illustration of the analytics workflow and data flow within this project, please see the `project_flow.png` diagram located in the `docs/` directory.
 
-![Project Flow](docs/project_flow.png)
+![Project Flow](docs/eda_draw.png)
 
 ---
 
