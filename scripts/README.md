@@ -25,7 +25,7 @@ The scripts are organized into the following subdirectories:
 
 This directory is responsible for the ETL (Extract, Transform, Load) processes of the project.
 
-- **`extract_data.py`**: A Python script that connects to the source `DataWarehouseDB`, extracts data from the Gold Layer views, and saves it as CSV files in the `data/gold_tables` directory.
+- **`extract_data.py`**: A Python script that connects to the source `DataWarehouseDB`, extracts data from the Gold Layer views of Data Warehouse , and saves it as CSV files in the `data/gold_tables` directory.
 
 ### 2. `exploratory_data_analysis`
 
@@ -58,3 +58,4 @@ This directory houses scripts for more complex and targeted business analysis.
 3.  **Execute SQL Scripts**: Run the SQL scripts from the `exploratory_data_analysis` and `advanced_analytics` directories against the `DataWarehouseAnalytics` database using your preferred SQL client.
 
 For information on the naming conventions used in the SQL scripts, please refer to the `docs/naming_conventions.md` file.
+
