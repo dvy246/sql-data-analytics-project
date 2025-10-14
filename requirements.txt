@@ -1,3 +1,5 @@
 pandas
 SQLAlchemy
 pyodbc
+PyYAML
+python-dotenv
