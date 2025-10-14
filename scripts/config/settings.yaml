@@ -1,0 +1,41 @@
+# ===================================================================
+# Configuration for the Data Analytics Pipeline
+# ===================================================================
+
+# -------------------------------------------------------------------
+# Database Connection Settings
+# -------------------------------------------------------------------
+database:
+  server: "localhost"
+  port: 1433
+  database_name: "DataWarehouseDB"
+  username: "SA"
+  # It is recommended to load the password from an environment variable
+  # for security. This setting tells the script which environment
+  # variable to read the password from.
+  password_env_var: "SQL_PASSWORD"
+
+# -------------------------------------------------------------------
+# Data Extraction (ETL) Settings
+# -------------------------------------------------------------------
+data_extraction:
+  # List of tables or views from the gold layer to be extracted
+  tables_to_extract:
+    - "gold.dim_customers"
+    - "gold.dim_products"
+    - "gold.fact_sales"
+
+  # Directory where the extracted CSV files will be saved, relative
+  # to the project root.
+  output_directory: "data/gold_tables"
+
+  # Number of rows to process in each chunk. This helps manage memory
+  # usage when extracting very large tables.
+  chunk_size: 10000
+
+# -------------------------------------------------------------------
+# Logging Configuration
+# -------------------------------------------------------------------
+logging:
+  level: "INFO"
+  log_file: "extract_data.log"

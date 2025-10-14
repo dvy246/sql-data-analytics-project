@@ -139,3 +139,107 @@ LEFT JOIN gold.dim_products p
     ON s.product_key = p.product_key
 GROUP BY p.product_name
 ORDER BY total_price ASC;
+ 
+/*---------------------------------------------------------------------------
+-- 11. Top 3 Most Expensive Products by Unit Cost
+--     Displays the three products with the highest aggregate total cost from the product dimension table.
+--     "Total cost" here is calculated as the sum of the 'cost' field for each product.
+---------------------------------------------------------------------------*/
+SELECT TOP 3
+    product_name,
+    SUM(cost) AS product_cost
+FROM gold.dim_products
+GROUP BY product_name
+ORDER BY product_cost DESC;
+
+-- Uses window functions (RANK) for flexible ranking and slicing of top-N products.
+-- To adjust how many top products you see, just change `revenue_rank<=3` in the WHERE clause below.
+-- Window function makes it easy to expand this for different analyses (e.g. DENSE_RANK, ROW_NUMBER).
+-- window functions are a powerful tool for data analysis for complex queries
+
+select *
+from (
+ select 
+ p.product_name,
+ sum(s.sales_amount) as total_revenue,
+ RANK() OVER (ORDER BY SUM(s.sales_amount) DESC) AS revenue_rank
+ from gold.fact_sales s
+ left join gold.dim_products p
+ on s.product_key = p.product_key
+ GROUP BY p.product_name)t
+ WHERE revenue_rank<=3
+
+/*-----------------------------------------------------------------------------
+-- 12. Top 3 Customers by Number of Orders
+--     Retrieves the top three customers who have placed the most distinct orders.
+--     The results include the customer key, full name, and the count of unique orders.
+-----------------------------------------------------------------------------*/
+SELECT TOP 3
+    c.customer_key,
+    CONCAT(c.first_name, ' ', c.last_name) AS full_name,
+    COUNT(DISTINCT s.order_number) AS total_orders
+FROM gold.fact_sales s
+LEFT JOIN gold.dim_customers c
+    ON s.customer_key = c.customer_key
+GROUP BY c.customer_key, c.first_name, c.last_name
+ORDER BY total_orders DESC;
+
+
+/*-----------------------------------------------------------------------------
+-- 13. Bottom 3 Customers by Number of Orders
+--     Identifies the three customers with the fewest number of distinct orders.
+--     The output includes customer key, full name, and their respective order count.
+-----------------------------------------------------------------------------*/
+SELECT TOP 3
+    c.customer_key,
+    CONCAT(c.first_name, ' ', c.last_name) AS full_name,
+    COUNT(DISTINCT s.order_number) AS total_orders
+FROM gold.fact_sales s
+LEFT JOIN gold.dim_customers c
+    ON s.customer_key = c.customer_key
+GROUP BY c.customer_key, c.first_name, c.last_name
+ORDER BY total_orders ASC;
+
+
+/*-----------------------------------------------------------------------------
+-- 14. Top 5 Customers by Number of Orders Using Window Functions
+--     Utilizes the RANK() window function to rank customers by their total number
+--     of distinct orders in descending order. Returns the five highest-ranked customers.
+--     Window functions facilitate flexible ranking and allow dynamic expansion of results.
+-----------------------------------------------------------------------------*/
+SELECT *
+FROM (
+    SELECT
+        c.customer_key,
+        CONCAT(c.first_name, ' ', c.last_name) AS full_name,
+        COUNT(DISTINCT s.order_number) AS total_orders,
+        RANK() OVER (ORDER BY COUNT(DISTINCT s.order_number) DESC) AS order_rank
+    FROM gold.fact_sales s
+    LEFT JOIN gold.dim_customers c
+        ON s.customer_key = c.customer_key
+    GROUP BY c.customer_key, c.first_name, c.last_name
+) ranked_customers
+WHERE order_rank <= 5;
+
+/*-----------------------------------------------------------------------------
+-- 15. Top 3 Product Lines by Revenue
+--     This query identifies the three product lines that have generated the highest total sales revenue.
+--     It uses a window function (RANK) to rank product lines by their total revenue in descending order,
+--     and then selects only the top three. The results include the product line name, its total revenue,
+--     and its revenue rank.
+-----------------------------------------------------------------------------*/
+SELECT
+    product_line,
+    total_revenue,
+    revenue_rank
+FROM (
+    SELECT 
+        p.product_line,
+        SUM(s.sales_amount) AS total_revenue,
+        RANK() OVER (ORDER BY SUM(s.sales_amount) DESC) AS revenue_rank
+    FROM gold.fact_sales s
+    LEFT JOIN gold.dim_products p
+        ON s.product_key = p.product_key
+    GROUP BY p.product_line
+) ranked_lines
+WHERE revenue_rank <= 3;

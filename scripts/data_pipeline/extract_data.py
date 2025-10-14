@@ -55,8 +55,6 @@ logger = logging.getLogger("extract_data")
 settings=load_yaml_config()
 
 db_config = settings['database']
-extract_config = settings['data_extraction']
-
 # --- Configuration: Update these values for your environment ---
 SQL_SERVER = db_config['server']
 SQL_DATABASE = db_config['database_name']
@@ -88,9 +86,12 @@ except Exception as e:
     logger.critical(f"Error creating SQLAlchemy engine: {e}", exc_info=True)
     sys.exit(1)
 
+extraction=settings['data_extraction']
+
 # --- Output Directory Setup ---
-base_dir = 'data'
-output_directory = os.path.join(base_dir, 'gold_tables')
+output_directory = extraction['output_directory']
+chunk_size=extraction['chunk_size']
+
 try:
     os.makedirs(output_directory, exist_ok=True)
     logger.info(f"Output directory ready at: {output_directory}")
@@ -108,7 +109,7 @@ for view_name in GOLD_VIEWS:
     try:
         total_rows = 0
         # chunks to handle large tables efficiently
-        for i, chunk in enumerate(pd.read_sql(query, engine, chunksize=10000)):
+        for i, chunk in enumerate(pd.read_sql(query, engine, chunksize=chunk_size)):
             csv_path = os.path.join(output_directory, f"{view_name}.csv")
             write_header = not os.path.exists(csv_path) or i == 0
             chunk.to_csv(

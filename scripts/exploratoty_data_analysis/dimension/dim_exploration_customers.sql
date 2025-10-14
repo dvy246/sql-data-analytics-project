@@ -1,0 +1,13 @@
+USE DataWarehouseAnalytics;
+GO
+
+--checking table data types--
+SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME IN ('dim_customers')
+
+--EXPLORING THE DIMENSIONS OF EACH TABLE--
+SELECT * FROM gold.dim_customers;
+
+--IDENTIFYING UNIQUE VALUES IN EACH DIMENSION--
+SELECT DISTINCT country from gold.dim_customers;
