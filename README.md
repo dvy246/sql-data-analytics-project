@@ -49,6 +49,8 @@ This project leverages a robust and industry-standard tech stack to ensure scala
 
 ## 🗺️ Exploratory Data Analysis (EDA) Highlights
 
+- ![EDA Diagram](docs/eda.drawio%20.png)
+- 
 The EDA phase was crucial for building a foundational understanding of the data. Key areas of exploration included:
 
 -   **Database & Schema Exploration**: Understanding table structures, data types, and relationships.
@@ -56,6 +58,21 @@ The EDA phase was crucial for building a foundational understanding of the data.
 -   **Time-Series Exploration**: Analyzing sales data over time to identify trends and seasonality.
 -   **Measures & Metrics**: Calculating key performance indicators (KPIs) like total sales, average order value, and customer lifetime value.
 -   **Magnitude & Ranking**: Identifying top-performing products, high-value customers, and sales outliers.
+  
+## 🧠 Advanced Analytics & Insights
+
+-![Advanced Analytics Diagram](docs/advanced_analysis.drawio.png)
+Building on the EDA, advanced SQL queries were developed to uncover deeper insights:
+
+-   **Time-Based Analysis**:
+    -   **Changes Over Time**: Calculated month-over-month and year-over-year growth in sales and customer acquisition.
+    -   **Cumulative Growth**: Tracked cumulative sales to visualize long-term performance trends.
+-   **Customer & Product Segmentation**:
+    -   **Data Segmentation**: Grouped customers based on purchasing behavior (e.g., frequency, monetary value).
+    -   **Part-to-Whole Analysis**: Determined the contribution of each product category to overall revenue.
+-   **Performance Metrics**:
+    -   **Performance Analysis**: Assessed product and sales performance against historical benchmarks.
+    -   **Custom Reports**: Generated detailed reports on customer demographics and product performance.
 
 ---
 
@@ -90,22 +107,6 @@ def extract_data(source_connection_string, destination_connection_string):
 ```
 
 This script automates the process of moving data from an operational database to our analytics environment, ensuring data is fresh and ready for analysis.
-
----
-
-## 🧠 Advanced Analytics & Insights
-
-Building on the EDA, advanced SQL queries were developed to uncover deeper insights:
-
--   **Time-Based Analysis**:
-    -   **Changes Over Time**: Calculated month-over-month and year-over-year growth in sales and customer acquisition.
-    -   **Cumulative Growth**: Tracked cumulative sales to visualize long-term performance trends.
--   **Customer & Product Segmentation**:
-    -   **Data Segmentation**: Grouped customers based on purchasing behavior (e.g., frequency, monetary value).
-    -   **Part-to-Whole Analysis**: Determined the contribution of each product category to overall revenue.
--   **Performance Metrics**:
-    -   **Performance Analysis**: Assessed product and sales performance against historical benchmarks.
-    -   **Custom Reports**: Generated detailed reports on customer demographics and product performance.
 
 ---
 
