@@ -127,6 +127,17 @@ This project is centered around a SQL Server-based data analytics pipeline, with
 -   **📊 BI Reporting**: SQL queries designed to feed directly into business intelligence dashboards for clear and concise reporting.
 -   **📂 Organized & Scalable**: A well-structured project with clear naming conventions and modular scripts.
 ---
+
+## Configuration
+
+The project's settings are managed in `scripts/config/settings.yaml`. This file allows you to configure the database connection, data extraction parameters, and logging without changing the Python code.
+
+-   **Database**: Set your SQL Server host, port, database, and username here.
+-   **Data Extraction**: Define which tables to extract and where to save them.
+-   **Logging**: Configure the log file and logging level.
+
+For security, the database password is not stored in this file. Instead, it is loaded from a `.env` file at the root of the project. Simply create a `.env` file and add your password like this:
+
 ## 🏁 Getting Started
 
 To get this project running locally, follow these steps:
