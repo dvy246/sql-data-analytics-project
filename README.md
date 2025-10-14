@@ -1,4 +1,4 @@
-# 📊 SQL Data Analytics & Business Intelligence Project
+# 📊 SQL ADVANCED ANALYTICS PROJECT 
 
 <div align="center">
 
