@@ -2,4 +2,8 @@ pandas
 SQLAlchemy
 pyodbc
 PyYAML
+<<<<<<< HEAD
 python-dotenv
+=======
+python-dotenv
+>>>>>>> origin/main
