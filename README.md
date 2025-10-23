@@ -129,7 +129,7 @@ This project is centered around a SQL Server-based data analytics pipeline, with
 ## 📊 BI Reproting
 
 -  The dashboards are present in this repository 'https://github.com/dvy246/tableau-project.git'
--  
+  
 ## Configuration
 
 The project's settings are managed in `scripts/config/settings.yaml`. This file allows you to configure the database connection, data extraction parameters, and logging without changing the Python code.
