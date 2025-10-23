@@ -129,7 +129,7 @@ This project is centered around a SQL Server-based data analytics pipeline, with
 ---
 ## 📊 BI Reproting
 
--  **https://github.com/dvy246/tableau-project.git
+-  https://github.com/dvy246/tableau-project.git
 
 ## Configuration
 
