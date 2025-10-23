@@ -20,8 +20,7 @@ This repository contains a complete data analytics workflow, starting from raw d
 
 ## 🌟 Why This Project Matters
 
-In a data-driven world, the ability to extract meaningful insights from complex datasets is paramount. This project serves as a practical demonstration of end-to-end data analysis, mirroring the challenges and workflows faced by data professionals in top-tier companies. It showcases not just technical proficiency in SQL and Python, but also the analytical mindset required to turn data into a strategic asset. For recruiters in the data and AI space, this repository is a testament to my ability to handle complex data tasks, think critically, and deliver clear, actionable results.
-
+In a data-driven world, the ability to extract meaningful insights from complex datasets is paramount. This project serves as a practical demonstration of end-to-end data analysis, mirroring the challenges and workflows faced by data professionals in top-tier companies. It showcases not just technical proficiency in SQL and Python, but also the analytical mindset required to turn data into a strategic asset. 
 ---
 
 ## 🗺️ Exploratory Data Analysis (EDA) Highlights
@@ -129,8 +128,8 @@ This project is centered around a SQL Server-based data analytics pipeline, with
 ---
 ## 📊 BI Reproting
 
--  https://github.com/dvy246/tableau-project.git
-
+-  The dashboards are present in this repository 'https://github.com/dvy246/tableau-project.git'
+-  
 ## Configuration
 
 The project's settings are managed in `scripts/config/settings.yaml`. This file allows you to configure the database connection, data extraction parameters, and logging without changing the Python code.
