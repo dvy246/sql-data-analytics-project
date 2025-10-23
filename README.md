@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![SQL](https://img.shields.io/badge/SQL-PostgreSQL-blue?style=for-the-badge&logo=sqlserver&logoColor=white)](https://www.postgresql.org/)
+[![SQL](https://img.shields.io/badge/SQL-PostgreSQL-blue?style=for-the-badge&logo=sql&logoColor=white)](https://www.postgresql.org/)
 [![Pandas](https://img.shields.io/badge/Pandas-2.0-blue?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.sqlalchemy.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
@@ -127,6 +127,9 @@ This project is centered around a SQL Server-based data analytics pipeline, with
 -   **📊 BI Reporting**: SQL queries designed to feed directly into business intelligence dashboards for clear and concise reporting.
 -   **📂 Organized & Scalable**: A well-structured project with clear naming conventions and modular scripts.
 ---
+## 📊 BI Reproting
+
+-  **https://github.com/dvy246/tableau-project.git
 
 ## Configuration
 
